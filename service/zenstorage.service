@@ -3,12 +3,12 @@ Description=ZenStorage Mount
 After=network-online.target
 
 [Service]
-User=seed
-Group=seed
+User=luxus
+Group=luxus
 Type=notify
 ExecStartPre=/bin/sleep 10
 ExecStart=/usr/bin/rclone mount \
-  --config=/home/seed/.config/rclone/rclone.conf \
+  --config=/home/luxus/.config/rclone/rclone.conf \
   --allow-other \
   --allow-non-empty \
   --rc \
