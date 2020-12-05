@@ -3,17 +3,17 @@
 sudo mkdir -p /mnt/zenstorage
 sudo mkdir -p /mnt/zenremote
 
-sudo wget https://raw.githubusercontent.com/CoffeeKnyte/local-remote/main/service/zenremote.service -P /etc/systemd/system/
-sudo wget https://raw.githubusercontent.com/CoffeeKnyte/local-remote/main/service/zenremote_primer.service -P /etc/systemd/system/
-sudo wget https://raw.githubusercontent.com/CoffeeKnyte/local-remote/main/service/zenremote_primer.timer -P /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/luxus/local-remote/main/service/zenremote.service -P /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/luxus/local-remote/main/service/zenremote_primer.service -P /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/luxus/local-remote/main/service/zenremote_primer.timer -P /etc/systemd/system/
 
-sudo wget https://raw.githubusercontent.com/CoffeeKnyte/local-remote/main/service/zenstorage.service -P /etc/systemd/system/
-sudo wget https://raw.githubusercontent.com/CoffeeKnyte/local-remote/main/service/zenstorage_primer.service -P /etc/systemd/system/
-sudo wget https://raw.githubusercontent.com/CoffeeKnyte/local-remote/main/service/zenstorage_primer.timer -P /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/luxus/local-remote/main/service/zenstorage.service -P /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/luxus/local-remote/main/service/zenstorage_primer.service -P /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/luxus/local-remote/main/service/zenstorage_primer.timer -P /etc/systemd/system/
 
 sudo rm  /etc/systemd/system/mergerfs.service
 
-sudo wget https://raw.githubusercontent.com/CoffeeKnyte/local-remote/main/service/mergerfs.service -P /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/luxus/local-remote/main/service/mergerfs.service -P /etc/systemd/system/
 
 sudo systemctl daemon-reload
 sudo systemctl enable zenstorage.service && sudo systemctl enable zenstorage_primer.service
