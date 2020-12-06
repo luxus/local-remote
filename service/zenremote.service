@@ -42,6 +42,10 @@ ExecStart=/usr/bin/rclone mount \
   --exclude 'tv/70s/**' \
   --exclude 'tv/80s/**' \
   --exclude 'tv/90s/**' \
+  --exclude 'movies_non-english/Swedish/**' \
+  --exclude 'movies_non-english/Danish/**' \
+  --exclude 'movies_non-english/Dutch/**' \
+  --exclude 'movies_non-english/Movies-4k-Nordic/**' \
   -v \
   zenremote: /mnt/zenremote
 ExecStop=/bin/fusermount -uz /mnt/zenremote
