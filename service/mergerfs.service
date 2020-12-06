@@ -1,0 +1,25 @@
+[Unit]
+Description=MergerFS Mount
+After=network-online.target
+Requires=zenmount@zenlocal.service
+Requires=zenmount@zenremote.service
+Requires=rclone_vfs.service
+After=zenmount@zenlocal.service
+After=zenmount@zenremote.service
+After=rclone_vfs.service
+
+[Service]
+Type=forking
+User=luxus
+Group=luxus
+GuessMainPID=no
+ExecStart=/usr/bin/mergerfs \
+  -o category.create=ff,async_read=false,cache.files=partial \
+  -o dropcacheonclose=true,use_ino,minfreespace=0 \
+  -o xattr=nosys,statfs_ignore=ro,allow_other,umask=002,noatime \
+  /mnt/local/=RW:/mnt/remote/=RW:/mnt/zenlocal/zd-*=RO:/mnt/zenremote/=RO /mnt/unionfs
+
+ExecStop=/bin/fusermount -u /mnt/unionfs
+
+[Install]
+WantedBy=default.target
